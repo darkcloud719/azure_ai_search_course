@@ -125,6 +125,7 @@ def _semantic_hybrid_search():
         vector_query = VectorizedQuery(
             vector=embedding,
             k_nearest_neighbors=3,
+
             fields="contentVector,titleVector"
         )
 
@@ -134,6 +135,7 @@ def _semantic_hybrid_search():
                 search_text=query,
                 include_total_count=True,
                 semantic_configuration_name="my-semantic-config",
+                vector_queries=[vector_query],
                 top=2
             )
 
